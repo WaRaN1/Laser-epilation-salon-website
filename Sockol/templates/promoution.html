@@ -1,0 +1,54 @@
+{% extends 'base_1.html' %}
+{% load static %}
+
+{% block title %} Акційні пропозиції {% endblock %}
+
+{% block content %}
+<div class="promoution-conteiner">
+    <div class="title-price">
+        <h1 class="title-price-h">Акційні пропозиції у Lazer Beauty Hall</h1>
+    </div>
+    <div class="one-conteiner-promoution">
+        <h4 class="gender">Пропозиції:</h4>
+        <div class="table-promoution">
+
+            <table class="table-promoution-cont">
+
+                {% for element in promoution %}
+                <tbody class="table-line">
+                <tr>
+                    <td class="td-name-promoution">До {{ element.date }} знижка на процедуру: {{ element.type }}
+                        {% if element.gender %} для {{ element.gender }} {% endif %}
+                        {% if element.category %}, {{ element.category }} {% endif %} -{{ element.size }}%</td>
+                    <td></td>
+                    <td class="td-price"></td>
+                </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+<div class="content-container">
+    <div class="one-conteiner">
+        <div class="icon-logo">
+            <img src="data:image/jpg;base64,{{ context.base64 }}" class="img-logo">
+        </div>
+        <div class="mein_text_cont">
+            <div class="mein_text">
+                <h1>Lazer Beauty Hall</h1>
+                <p>Найкращий салон Дніпра.</p>
+
+                <p>І навіть не зважаючи чи є у нас акційні пропозиції на данний момент чи на, ми працюємо лише заради
+                    вас, підбираючи індивідуальний підхід для кожного клієнта, надаємо лише найвищу
+                    якість послуг, даруючи красу та душевну рівновагу.</p>
+                <p>Основна діяльність салону спрямована на задоволення потреб своїх відвідувачів, щоб клієнт почувався в
+                    салоні як всебе дома з комфортом на всі 100%.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+</div>
+{% endblock %}

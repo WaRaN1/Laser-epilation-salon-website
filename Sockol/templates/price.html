@@ -1,0 +1,46 @@
+{% extends 'base_1.html' %}
+{% load static %}
+
+{% block title %} Ціни {% endblock %}
+
+{% block content %}
+
+<div class="title-price">
+    <h1 class="title-price-h">{{ type.name }} у Lazer Beauty Hall</h1>
+</div>
+<div class="one-conteiner-price">
+    <div class="table-price">
+        <table>
+            <h4 class="gender">Жінки:</h4>
+            <tbody class="table-line">
+            {% for elem in context_woman %}
+            <tr>
+                <td class="td-name">{{ elem.name }}</td>
+                <td></td>
+                <td class="td-price">{{ elem.price }} ₴</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="table-price">
+        <table>
+            <h4 class="gender">Чоловіки:</h4>
+            <tbody class="table-line">
+            {% for elem in context_man %}
+            <tr>
+                <td class="td-name">{{ elem.name }}</td>
+                <td></td>
+                <td class="td-price">{{ elem.price }} ₴</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="description_price">
+    <p>{{ type.info|linebreaks }}</p>
+</div>
+
+{% endblock %}
+

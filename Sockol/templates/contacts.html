@@ -1,0 +1,42 @@
+{% extends 'base_1.html' %}
+{% load static %}
+
+{% block title %} Акційні пропозиції {% endblock %}
+
+{% block content %}
+<div class="promoution-conteiner">
+    <div class="title-price">
+        <h1 class="title-price-h">Контакти Lazer Beauty Hall</h1>
+    </div>
+</div>
+<div class="content-container">
+    <div class="one-conteiner">
+        <div class="icon-logo">
+            <img src="data:image/jpg;base64,{{ context.base64 }}" class="img-logo">
+        </div>
+        <div class="mein_text_cont">
+            <div class="mein_text">
+                <div class="contacts_card">
+                    <p>Адреса</p>
+                    <a><img src="data:image/jpg;base64,{{ home_icon.base64 }}" class="logo-contact"></a><a>м. Дніпро (Правий Берег), вул. Глінки 17</a>
+                </div>
+                <div class="contacts_card">
+                    <p>Номера телефонів</p>
+                    <a><img src="data:image/jpg;base64,{{ phone_icon.base64 }}" class="logo-contact"></a><a>+38(099)0056154</a>
+                </div>
+                <div class="contacts_card">
+                    <p>Електронна пошта</p>
+                    <a><img src="data:image/jpg;base64,{{ mail_icon.base64 }}" class="logo-contact"></a><a>laserbeautyhall@gmail.com</a>
+                </div>
+                <div class="contacts_card">
+                    <p>Соціальні мережі</p>
+                    <a href="https://www.instagram.com/laserbeautyhall/"><img src="data:image/jpg;base64,{{ instagram_icon.base64 }}" class="logo-contact_social"></a>
+                    <a href="https://www.facebook.com/laserbeautyhall"><img src="data:image/jpg;base64,{{ facebook_icon.base64 }}" class="logo-contact_social"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+</div>
+{% endblock %}

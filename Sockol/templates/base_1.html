@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %} | Lazer Beauty Hall</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link type="text/css" href="{% static 'css/1_40.css' %}" rel="stylesheet"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<header>
+    <div>
+        <nav class="navbar navbar-default navigation-clean-button">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand" href="http://127.0.0.1:8000/">Lazer Beauty Hall</a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span
+                            class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
+                                                href="#">ПОСЛУГИ ТА ЦІНИ <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {% for element in type_service %}
+                                <li role="presentation"><a href="http://127.0.0.1:8000/price/{{ element.url }}/">{{ element }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li role="presentation"><a href="http://127.0.0.1:8000/shop/all/all">КОСМЕТИКА ТА ЗАСОБИ</a></li>
+                        <li role="presentation"><a href="http://127.0.0.1:8000/blog">БЛОГ</a></li>
+                        <li role="presentation"><a href="http://127.0.0.1:8000/promoution">АКЦІЇ</a></li>
+                        <li role="presentation"><a href="http://127.0.0.1:8000/contacts">КОНТАКТИ</a></li>
+                    </ul>
+<!--                    <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="#">Log In</a> <a-->
+<!--                            class="btn btn-default action-button" role="button" href="#">Sign Up</a></p>-->
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</header>
+
+<div class="main_context">
+
+{% block content %}
+{% endblock %}
+
+</div>
+
+<footer>
+    <nav class="navbar navbar-default navigation-clean-button">
+        <div class="foot-left">
+        <h4 class="footer-h">Lazer Beauty Hall</h4>
+        <h4 class="footer-h">Салон лазерної епіляції у Дніпрі</h4>
+            </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="foot-right">
+            <h4 class="footer-h">м. Дніпро (Правий Берег), вул. Глінки 17</h4>
+            <h4 class="footer-h">тел. +38(099)0056154</h4>
+        </div>
+    </nav>
+</footer>
+
+</body>
+
+</html>

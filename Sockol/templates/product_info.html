@@ -1,0 +1,34 @@
+{% extends 'base_1.html' %}
+{% load static %}
+
+{% block title %} Інформація {% endblock %}
+
+{% block content %}
+<div class="info-conteiner">
+    <div class="info-text">
+        <div class="info-text-one">
+            <div>
+                <h1>{{ product_info.english_name }}</h1>
+                <h2>{{ product_info.name }}</h2>
+            </div>
+                <hr>
+            <div>
+                {% if product_info.ref1 %}
+                <p>Ref. {{ product_info.ref1 }}-{{ product_info.volume1 }}</p>
+                {% endif %}
+                 {% if product_info.ref2 %}
+                <p>Ref. {{ product_info.ref2 }}-{{ product_info.volume2 }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="description">
+            {{ product_info.description|linebreaks }}
+        </div>
+    </div>
+    <div class="info-image-cont">
+        <div class="info-image">
+            <img src="data:image/jpg;base64,{{ product_info.icon.base64 }}" class="info-img">
+        </div>
+    </div>
+</div>
+{% endblock %}

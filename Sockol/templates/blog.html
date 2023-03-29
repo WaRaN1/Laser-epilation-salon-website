@@ -1,0 +1,56 @@
+{% extends 'base_1.html' %}
+{% load static %}
+
+{% block title %} Блог {% endblock %}
+
+{% block content %}
+
+<div class="title-price">
+    <h1 class="title-price-h">Блог Lazer Beauty Hall</h1>
+</div>
+
+<div class="card1">
+    {% for element in page_obj %}
+    <div class="card-blog">
+        <div class="img-blog-conteiner">
+            <a href="http://127.0.0.1:8000/blog/about_product/{{ element.id }}">
+            <img src="data:image/jpg;base64,{{ element.icon.base64 }}" class="img-blog">
+                </a>
+        </div>
+        <div class="blog-text-conteiner-all">
+            <div class="blog-text-conteiner">
+                <div>
+                    <h4>{{ element.name }}</h4>
+                </div>
+                <div>
+                    <p>{{ element.description|truncatechars:150 }}</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="btn-blogs">
+                <a href="http://127.0.0.1:8000/blog/product/about_product/{{ element.id }}">Детальніше >>></a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div>
+    <nav class="list-pages">
+        <ul>
+            {% for p in page_obj.paginator.page_range %}
+            {% if page_obj.number == p %}
+            <li class="page-num page-num-selected">{{ p }}</li>
+            {% else %}
+
+            <li class="page-num">
+                <a href="?page={{ p }}">{{ p }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+</div>
+
+{% endblock %}
+
